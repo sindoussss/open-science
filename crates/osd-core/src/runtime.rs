@@ -1430,6 +1430,10 @@ fn spawn_sidecar(env: &Env, port: u16, generation: u64) -> Result<Child, String>
     if let Some(seeded) = crate::opencode_config::seed_default_permission(&existing) {
         write_atomic(&cfg_file, &seeded)?;
     }
+    let existing = std::fs::read_to_string(&cfg_file).unwrap_or_default();
+    if let Some(seeded) = crate::opencode_config::seed_local_scientific_model(&existing) {
+        write_atomic(&cfg_file, &seeded)?;
+    }
     // Installs that chose a mode before this app wrote any `external_directory`
     // rules kept OpenCode's builtin ask on every path outside the workspace —
     // the switch alone would never have refreshed them, since a chosen mode is

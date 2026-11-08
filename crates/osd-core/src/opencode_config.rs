@@ -813,6 +813,53 @@ pub(crate) fn read_config(existing: &str) -> Option<Value> {
 /// older turns and carries on in the same session. Set explicitly rather than
 /// relying on the runtime default, and never overridden once the key exists —
 /// a user who turned it off keeps it off. Returns None when nothing to do.
+/// Seed the default local scientific LLM into the OpenCode configuration if no model is set.
+pub fn seed_local_scientific_model(existing: &str) -> Option<String> {
+    let mut root: Value = read_config(existing)?;
+    let obj = root.as_object_mut()?;
+    let mut modified = false;
+
+    if obj.get("model").and_then(|v| v.as_str()).map_or(true, |s| s.is_empty()) {
+        obj.insert("model".to_string(), json!("local-scientific/qwen3.5-9b-scientific"));
+        modified = true;
+    }
+
+    let providers = obj.entry("provider".to_string()).or_insert_with(|| json!({}));
+    if let Some(prov_obj) = providers.as_object_mut() {
+        if !prov_obj.contains_key("local-scientific") {
+            prov_obj.insert(
+                "local-scientific".to_string(),
+                json!({
+                    "name": "Local Scientific Qwen3.5",
+                    "npm": "@ai-sdk/openai-compatible",
+                    "options": {
+                        "baseURL": "http://127.0.0.1:8000/v1",
+                        "apiKey": "none"
+                    },
+                    "models": {
+                        "qwen3.5-9b-scientific": {
+                            "name": "Qwen3.5-9B Scientific (Balanced 20-Step)",
+                            "limit": {
+                                "context": 32768
+                            }
+                        }
+                    }
+                }),
+            );
+            modified = true;
+        }
+    }
+
+    if modified {
+        serde_json::to_string_pretty(&root).ok().map(|mut s| {
+            s.push('\n');
+            s
+        })
+    } else {
+        None
+    }
+}
+
 pub fn seed_compaction(existing: &str) -> Option<String> {
     let mut root = read_config(existing)?;
     let obj = root.as_object_mut().unwrap();

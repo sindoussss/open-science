@@ -3013,7 +3013,7 @@ export const useRuntimeStore = create<RuntimeState>((set, get) => ({
   agentModels: {},
   agentVariants: {},
   commands: [],
-  defaultModel: null,
+  defaultModel: "local-scientific/qwen3.5-9b-scientific",
   providers: [],
   reasoningVariant: initialReasoningVariant(),
   setReasoningVariant: (variant) => {
@@ -3372,7 +3372,16 @@ export const useRuntimeStore = create<RuntimeState>((set, get) => ({
       set(
         get().switching
           ? { agents, commands, providers }
-          : { agents, defaultModel, commands, providers },
+          : {
+              agents,
+              defaultModel:
+                defaultModel ??
+                (providers.some((p) => p.id === "local-scientific")
+                  ? "local-scientific/qwen3.5-9b-scientific"
+                  : get().defaultModel),
+              commands,
+              providers,
+            },
       );
       // Self-heal a dangling default model. It can go stale out-of-band — its
       // provider removed, its id renamed, or the config edited outside the app

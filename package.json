@@ -9,7 +9,8 @@
     "build": "pnpm --filter @ai4s/desktop build",
     "test": "pnpm --filter @ai4s/desktop test",
     "typecheck": "pnpm --filter @ai4s/desktop typecheck",
-    "lint": "pnpm --filter @ai4s/desktop lint"
+    "lint": "pnpm --filter @ai4s/desktop lint",
+    "serve:local-llm": "powershell -ExecutionPolicy Bypass -File scripts/run-local-scientific-llm.ps1"
   },
   "engines": {
     "node": ">=20"

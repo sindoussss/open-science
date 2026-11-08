@@ -54,8 +54,14 @@ export function selectableModelOptions(options: ModelOption[]): ModelOption[] {
  *   A paid one stays, and the picker says it is retired: choosing what to pay
  *   for is the user's call.
  */
+export const DEFAULT_LOCAL_SCIENTIFIC_MODEL = "local-scientific/qwen3.5-9b-scientific";
+
 export function fallbackDefaultModel(providers: ProviderInfo[], defaultModel: string): string | null {
   const options = flattenModelOptions(providers);
+  const localScientific = options.find((m) => m.key === DEFAULT_LOCAL_SCIENTIFIC_MODEL && m.available);
+  if (localScientific && (!defaultModel || defaultModel === DEFAULT_LOCAL_SCIENTIFIC_MODEL)) {
+    return DEFAULT_LOCAL_SCIENTIFIC_MODEL;
+  }
   const current = options.find((m) => m.key === defaultModel);
   if (current) {
     if (current.available || !current.free) return null;
@@ -66,7 +72,8 @@ export function fallbackDefaultModel(providers: ProviderInfo[], defaultModel: st
   }
   const candidates = selectableModelOptions(options);
   if (candidates.length === 0) return null;
-  const providerID = defaultModel.split("/")[0];
+  if (localScientific) return DEFAULT_LOCAL_SCIENTIFIC_MODEL;
+  const providerID = defaultModel ? defaultModel.split("/")[0] : "";
   return (candidates.find((m) => m.providerID === providerID) ?? candidates[0]).key;
 }
 
