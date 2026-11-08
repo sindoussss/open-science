@@ -1,77 +1,36 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { renderAt } from "@/test/render";
 import { useUiStore } from "@/lib/store";
-import { useRuntimeStore } from "@/lib/runtime";
 import { shippedLocales } from "@/i18n/config";
+import i18n from "@/i18n";
+
+afterEach(async () => {
+  useUiStore.getState().setLocale("en");
+  await i18n.changeLanguage("en");
+});
 
 describe("Settings language selector", () => {
   it("shows a Language select with one option per shipped locale", async () => {
-    renderAt("/settings/appearance");
+    renderAt("/settings");
     const select = await screen.findByRole("combobox", { name: "Language" });
     expect(within(select).getAllByRole("option")).toHaveLength(shippedLocales().length);
   });
 
   it("updates the store locale on change", async () => {
-    renderAt("/settings/appearance");
+    renderAt("/settings");
     const select = await screen.findByRole("combobox", { name: "Language" });
     await userEvent.selectOptions(select, "ja");
     expect(useUiStore.getState().locale).toBe("ja");
-    useUiStore.getState().setLocale("en");
   });
 });
 
-describe("Settings page strings (i18n)", () => {
-  it("renders the General section with the settings sidebar navigation", async () => {
+describe("Settings page strings (ScienceAI)", () => {
+  it("renders the ScienceAI settings and navigation", async () => {
     renderAt("/settings");
-    expect(await screen.findByRole("heading", { level: 1, name: "General" })).toBeInTheDocument();
-    expect(screen.getByText("Workspace")).toBeInTheDocument();
-    expect(screen.getByText("available in the desktop app")).toBeInTheDocument();
-    // The sidebar became the settings navigation with a way back to the app.
+    expect(await screen.findByRole("heading", { level: 1, name: "ScienceAI Settings" })).toBeInTheDocument();
+    expect(screen.getByText("local-scientific/qwen3.5-9b-scientific")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Back to app" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Connectors" })).toBeInTheDocument();
-  });
-
-  it("renders each section's own title and disconnected-runtime prompt", async () => {
-    // An old link still lands: Runtime is now Network.
-    const network = renderAt("/settings/runtime");
-    expect(await screen.findByRole("heading", { level: 1, name: "Network" })).toBeInTheDocument();
-    network.unmount();
-
-    const connectors = renderAt("/settings/connectors");
-    expect(await screen.findByText("MCP servers")).toBeInTheDocument();
-    expect(screen.getByText("Connect the runtime to configure MCP servers.")).toBeInTheDocument();
-    connectors.unmount();
-
-    renderAt("/settings/agents");
-    expect(await screen.findByText("Connect the runtime to configure models.")).toBeInTheDocument();
-  });
-
-  it("shows auto-review: OpenCode backs the app whichever agent a conversation runs on", async () => {
-    const view = renderAt("/settings");
-    expect(
-      await screen.findByRole("switch", { name: "Review after every turn that changes files" }),
-    ).toBeInTheDocument();
-    view.unmount();
-  });
-
-  it("renders separate model browsing and provider management surfaces when connected", async () => {
-    const original = useRuntimeStore.getState();
-    let view: ReturnType<typeof renderAt> | undefined;
-    try {
-      useRuntimeStore.setState({ status: "ready", defaultModel: null });
-      view = renderAt("/settings/agents");
-      // No client behind this render: the Models card sits in its loading
-      // state while the separate Providers card is already on screen.
-      expect(await screen.findByText("Loading the model catalog…")).toBeInTheDocument();
-      expect(screen.getByRole("heading", { level: 2, name: "OpenCode providers" })).toBeInTheDocument();
-      // The Providers card shows its content outright — adding a provider is
-      // the common task here and used to sit behind a "Manage" click.
-      expect(screen.queryByRole("button", { name: "Manage" })).not.toBeInTheDocument();
-    } finally {
-      view?.unmount();
-      useRuntimeStore.setState({ status: original.status, defaultModel: original.defaultModel });
-    }
   });
 });

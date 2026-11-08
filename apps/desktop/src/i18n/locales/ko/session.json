@@ -253,8 +253,8 @@
       "upgrading": "새 런타임에 맞게 대화 기록을 업그레이드하는 중입니다({{done}}/{{total}}개). 한 번만 진행됩니다."
     },
     "runtime": {
-      "title": "OpenCode 런타임",
-      "bodyPrefix": "데스크톱 앱은 내장된 OpenCode를 자동으로 실행합니다. 브라우저에서는 다음으로 시작하세요",
+      "title": "ScienceAI 런타임",
+      "bodyPrefix": "데스크톱 앱은 내장된 ScienceAI를 자동으로 실행합니다. 브라우저에서는 다음으로 시작하세요",
       "bodySuffix": " 그리고 연결하세요."
     },
     "connect": "연결",
@@ -280,7 +280,7 @@
       "openTitle": "{{path}} 열기 — 에이전트가 이 세션에서 이 노트북을 작업합니다"
     },
     "connBadge": {
-      "title": "OpenCode · {{status}}",
+      "title": "ScienceAI · {{status}}",
       "status": {
         "ready": "준비됨",
         "connecting": "연결 중",

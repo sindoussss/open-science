@@ -55,7 +55,7 @@
   },
   "page": {
     "title": "设置",
-    "subtitle": "此处的所有设置都配置内置的 OpenCode 运行时——一份配置，无需重复。"
+    "subtitle": "此处的所有设置都配置内置的 ScienceAI 运行时——一份配置，无需重复。"
   },
   "runtime": {
     "title": "网络",
@@ -83,8 +83,8 @@
     "mirrorPypiPlaceholder": "https://pypi.tuna.tsinghua.edu.cn/simple",
     "mirrorPythonPlaceholder": "https://mirror.example.com/python-build-standalone",
     "mirrorHint": "可选镜像,仅在设置 Python 工具(Jupyter、科学数据库)下载时使用,适合 pypi.org / github.com 访问缓慢的网络。留空则使用默认源。",
-    "serverTitle": "OpenCode 服务",
-    "serverHint": "应用驱动的 OpenCode。内置的会自动启动；只有使用自己的 opencode serve 时才填写地址。"
+    "serverTitle": "ScienceAI 服务",
+    "serverHint": "应用驱动的 ScienceAI。内置的会自动启动；只有使用自己的 opencode serve 时才填写地址。"
   },
   "acp": {
     "add": "添加智能体",
@@ -96,7 +96,7 @@
     "commandPlaceholder": "命令（npx、gemini…）",
     "argsLabel": "参数",
     "argsPlaceholder": "参数（-y @agentclientprotocol/codex-acp）",
-    "limits": "ACP 智能体以命令形式在本机运行，工作在对话所在的文件夹里，和 OpenCode 并存。它自行管理模型、命令和历史记录，所以模型选择器和计划模式只用于 OpenCode 对话。"
+    "limits": "ACP 智能体以命令形式在本机运行，工作在对话所在的文件夹里，和 ScienceAI 并存。它自行管理模型、命令和历史记录，所以模型选择器和计划模式只用于 ScienceAI 对话。"
   },
   "updates": {
     "title": "应用更新",
@@ -120,8 +120,8 @@
     "privacy": "仅访问公开的 GitHub Releases API。不会发送工作区文件或 API 密钥。"
   },
   "model": {
-    "title": "OpenCode 默认模型",
-    "hint": "新的 OpenCode 对话默认使用的模型。可选范围由下方的供应商提供。",
+    "title": "ScienceAI 默认模型",
+    "hint": "新的 ScienceAI 对话默认使用的模型。可选范围由下方的供应商提供。",
     "connectPrompt": "连接运行时以配置模型。",
     "notSet": "未设置——选择一个默认模型",
     "providersDivider": "供应商",
@@ -149,8 +149,8 @@
     "noProvidersHint": "在下方连接一个 Provider。"
   },
   "providers": {
-    "title": "OpenCode 供应商",
-    "hint": "登录认证、自定义端点和导入的 OpenCode 登录信息",
+    "title": "ScienceAI 供应商",
+    "hint": "登录认证、自定义端点和导入的 ScienceAI 登录信息",
     "webHint": "已连接的供应商 — 浏览器端只读",
     "webNote": "API 密钥和自定义端点在运行 workbench 的那台机器上设置：桌面应用里，或者无窗口运行时用 `osd auth set`。凭据不会经过网关。",
     "connectPrompt": "连接运行时以管理提供商。",
@@ -182,7 +182,7 @@
     "fetchingModels": "获取中…",
     "noModelsFound": "端点未返回任何模型。",
     "addEndpoint": "添加端点",
-    "importLogin": "已经在使用 OpenCode CLI？导入其登录信息",
+    "importLogin": "已经在使用 ScienceAI CLI？导入其登录信息",
     "addTitle": "添加 Provider",
     "fieldName": "名称",
     "fieldApiStyle": "API 风格",
@@ -316,8 +316,8 @@
     "couldNotRemoveMcp": "无法移除 MCP 服务器",
     "mcpRemoved": "MCP 服务器 {{name}} 已移除",
     "importFailed": "导入失败",
-    "noOpenCodeLoginFound": "在此计算机上未找到 OpenCode CLI 登录信息。",
-    "importedLogin": "已导入您的 OpenCode CLI 登录信息。",
+    "noScienceAILoginFound": "在此计算机上未找到 ScienceAI CLI 登录信息。",
+    "importedLogin": "已导入您的 ScienceAI CLI 登录信息。",
     "couldNotSetProxy": "无法应用代理设置",
     "proxyApplied": "代理设置已生效",
     "mirrorSaved": "镜像设置已保存",
@@ -539,7 +539,7 @@
     "disabledNote": "记忆已关闭，该文件当前不会被加载。"
   },
   "agentModels": {
-    "title": "OpenCode 各角色的模型与思考强度",
+    "title": "ScienceAI 各角色的模型与思考强度",
     "hint": "让主角色用强模型推理，同时把审阅、探索类角色放在快模型上，并分别设定各自的思考强度。",
     "noModels": "请先接入一个供应商再选择模型。",
     "followDefault": "跟随默认",
@@ -608,13 +608,13 @@
     "opened": "已打开权限设置窗口。",
     "error": "电脑操作",
     "accessibility": "辅助功能",
-    "accessibilityHint": "必需。让助手能读取应用界面并进行操作。权限授予的是 Open Science Computer Use 这个独立助手，而不是整个工作台。",
+    "accessibilityHint": "必需。让助手能读取应用界面并进行操作。权限授予的是 ScienceAI Computer Use 这个独立助手，而不是整个工作台。",
     "screenshots": "屏幕录制",
-    "screenshotsHint": "可选，且授予的是 Open Science 本身而不是那个独立助手——macOS 把屏幕捕获算在发起请求的应用头上。仅当智能体需要查看无法以文本读取的窗口内容（例如图表或画布）时才需要。"
+    "screenshotsHint": "可选，且授予的是 ScienceAI 本身而不是那个独立助手——macOS 把屏幕捕获算在发起请求的应用头上。仅当智能体需要查看无法以文本读取的窗口内容（例如图表或画布）时才需要。"
   },
   "userBrowser": {
     "title": "你自己装的浏览器",
-    "hint": "Open Science 发现这台 Mac 上有一个它的智能体可以从命令行驱动的浏览器。这里没有需要配置的东西——放在这里是让你知道它能被碰到。",
+    "hint": "ScienceAI 发现这台 Mac 上有一个它的智能体可以从命令行驱动的浏览器。这里没有需要配置的东西——放在这里是让你知道它能被碰到。",
     "name": "ego lite",
     "reachable": "已安装且可用。每个会话首次使用前会先请求你确认。",
     "notReachable": "已安装，但这台机器上没有它的命令行工具，智能体够不着。运行 ego lite 自带的安装流程即可补上。",

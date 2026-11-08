@@ -257,8 +257,8 @@
       "upgrading": "Mise à niveau de l'historique des conversations pour le nouveau moteur ({{done}} sur {{total}}). Cette opération n'a lieu qu'une fois."
     },
     "runtime": {
-      "title": "Runtime OpenCode",
-      "bodyPrefix": "L'application de bureau exécute automatiquement un OpenCode intégré. Dans le navigateur, démarrez-en un avec",
+      "title": "Runtime ScienceAI",
+      "bodyPrefix": "L'application de bureau exécute automatiquement un ScienceAI intégré. Dans le navigateur, démarrez-en un avec",
       "bodySuffix": " puis connectez-vous."
     },
     "connect": "Connecter",
@@ -284,7 +284,7 @@
       "openTitle": "Ouvrir {{path}} — l'agent travaille sur ce notebook dans cette session"
     },
     "connBadge": {
-      "title": "OpenCode · {{status}}",
+      "title": "ScienceAI · {{status}}",
       "status": {
         "ready": "prêt",
         "connecting": "connexion…",

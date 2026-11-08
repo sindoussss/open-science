@@ -257,8 +257,8 @@
       "upgrading": "Actualizando el historial de conversaciones para el nuevo entorno ({{done}} de {{total}}). Solo ocurre una vez."
     },
     "runtime": {
-      "title": "Entorno de ejecución de OpenCode",
-      "bodyPrefix": "La app de escritorio ejecuta automáticamente una instancia de OpenCode incluida. En el navegador, inicia una con",
+      "title": "Entorno de ejecución de ScienceAI",
+      "bodyPrefix": "La app de escritorio ejecuta automáticamente una instancia de ScienceAI incluida. En el navegador, inicia una con",
       "bodySuffix": " y conéctate."
     },
     "connect": "Conectar",
@@ -284,7 +284,7 @@
       "openTitle": "Abrir {{path}} — el agente trabaja en este cuaderno dentro de esta sesión"
     },
     "connBadge": {
-      "title": "OpenCode · {{status}}",
+      "title": "ScienceAI · {{status}}",
       "status": {
         "ready": "listo",
         "connecting": "conectando",

@@ -55,7 +55,7 @@
   },
   "page": {
     "title": "設定",
-    "subtitle": "ここでの設定はすべて、バンドルされた OpenCode ランタイムに対するものです — 設定は一つだけで、コピーはありません。"
+    "subtitle": "ここでの設定はすべて、バンドルされた ScienceAI ランタイムに対するものです — 設定は一つだけで、コピーはありません。"
   },
   "runtime": {
     "title": "ネットワーク",
@@ -83,8 +83,8 @@
     "mirrorPypiPlaceholder": "https://pypi.tuna.tsinghua.edu.cn/simple",
     "mirrorPythonPlaceholder": "https://mirror.example.com/python-build-standalone",
     "mirrorHint": "任意のミラー。Python ツール(Jupyter・科学データベース)のセットアップ時のダウンロードにのみ使用され、pypi.org / github.com が遅いネットワーク向けです。空欄でデフォルト。",
-    "serverTitle": "OpenCode サーバー",
-    "serverHint": "アプリが操作する OpenCode。内蔵のものは自動で起動します。自分の opencode serve を使う場合のみアドレスを入力してください。"
+    "serverTitle": "ScienceAI サーバー",
+    "serverHint": "アプリが操作する ScienceAI。内蔵のものは自動で起動します。自分の opencode serve を使う場合のみアドレスを入力してください。"
   },
   "acp": {
     "add": "エージェントを追加",
@@ -96,7 +96,7 @@
     "commandPlaceholder": "コマンド（npx、gemini など）",
     "argsLabel": "引数",
     "argsPlaceholder": "引数（-y @agentclientprotocol/codex-acp）",
-    "limits": "ACP エージェントはこのコンピューター上のコマンドとして、会話のフォルダーで OpenCode と並んで動作します。モデル、コマンド、履歴はエージェント自身が管理するため、モデル選択とプランモードは OpenCode の会話にのみ適用されます。"
+    "limits": "ACP エージェントはこのコンピューター上のコマンドとして、会話のフォルダーで ScienceAI と並んで動作します。モデル、コマンド、履歴はエージェント自身が管理するため、モデル選択とプランモードは ScienceAI の会話にのみ適用されます。"
   },
   "updates": {
     "title": "アプリの更新",
@@ -120,8 +120,8 @@
     "privacy": "公開 GitHub Releases API だけに接続します。ワークスペースのファイルや API キーは送信しません。"
   },
   "model": {
-    "title": "OpenCode の既定モデル",
-    "hint": "新しい OpenCode の会話で最初に使うモデル。選べるモデルは下のプロバイダーから提供されます。",
+    "title": "ScienceAI の既定モデル",
+    "hint": "新しい ScienceAI の会話で最初に使うモデル。選べるモデルは下のプロバイダーから提供されます。",
     "connectPrompt": "モデルを設定するには、ランタイムに接続してください。",
     "notSet": "未設定 — デフォルトモデルを選択",
     "providersDivider": "プロバイダー",
@@ -149,8 +149,8 @@
     "noProvidersHint": "下の Providers で接続してください。"
   },
   "providers": {
-    "title": "OpenCode のプロバイダー",
-    "hint": "認証、カスタムエンドポイント、インポートした OpenCode ログイン",
+    "title": "ScienceAI のプロバイダー",
+    "hint": "認証、カスタムエンドポイント、インポートした ScienceAI ログイン",
     "webHint": "接続済みのプロバイダー — ブラウザからは読み取り専用",
     "webNote": "API キーとカスタムエンドポイントは、ワークベンチを動かしているマシン上で設定します。デスクトップアプリ、またはウィンドウなしで動かしている場合は `osd auth set` を使います。認証情報がゲートウェイを通ることはありません。",
     "connectPrompt": "プロバイダーを管理するにはランタイムに接続してください。",
@@ -182,7 +182,7 @@
     "fetchingModels": "取得中…",
     "noModelsFound": "エンドポイントからモデルが返されませんでした。",
     "addEndpoint": "エンドポイントを追加",
-    "importLogin": "すでに OpenCode CLI を使っていますか？ そのログインをインポート",
+    "importLogin": "すでに ScienceAI CLI を使っていますか？ そのログインをインポート",
     "addTitle": "プロバイダーを追加",
     "fieldName": "名前",
     "fieldApiStyle": "API 形式",
@@ -316,8 +316,8 @@
     "couldNotRemoveMcp": "MCP サーバーを削除できませんでした",
     "mcpRemoved": "MCP サーバー {{name}} を削除しました",
     "importFailed": "インポートに失敗しました",
-    "noOpenCodeLoginFound": "このマシンで OpenCode CLI のログインが見つかりませんでした。",
-    "importedLogin": "OpenCode CLI のログインをインポートしました。",
+    "noScienceAILoginFound": "このマシンで ScienceAI CLI のログインが見つかりませんでした。",
+    "importedLogin": "ScienceAI CLI のログインをインポートしました。",
     "couldNotSetProxy": "プロキシ設定を適用できませんでした",
     "proxyApplied": "プロキシ設定を適用しました",
     "mirrorSaved": "ミラー設定を保存しました",
@@ -539,7 +539,7 @@
     "disabledNote": "メモリはオフのため、このファイルは現在読み込まれていません。"
   },
   "agentModels": {
-    "title": "OpenCode のロールごとのモデルと推論強度",
+    "title": "ScienceAI のロールごとのモデルと推論強度",
     "hint": "メインのロールは強いモデルで推論させ、レビューや探索のロールは速いモデルで動かし、それぞれの推論強度を設定します。",
     "noModels": "モデルを選ぶにはプロバイダーを接続してください。",
     "followDefault": "デフォルトに従う",
@@ -608,13 +608,13 @@
     "opened": "権限設定のウィンドウを開きました。",
     "error": "コンピュータ操作",
     "accessibility": "アクセシビリティ",
-    "accessibilityHint": "必須。ヘルパーがアプリの画面を読み取り、操作できるようにします。許可はワークベンチ全体ではなく、独立したヘルパー Open Science Computer Use に与えられます。",
+    "accessibilityHint": "必須。ヘルパーがアプリの画面を読み取り、操作できるようにします。許可はワークベンチ全体ではなく、独立したヘルパー ScienceAI Computer Use に与えられます。",
     "screenshots": "画面収録",
-    "screenshotsHint": "任意で、許可はヘルパーではなく Open Science 本体に与えます — macOS は画面収録を、要求を始めたアプリに帰属させるためです。グラフやキャンバスなど、テキストとして読めないウィンドウを見る必要があるときだけ必要です。"
+    "screenshotsHint": "任意で、許可はヘルパーではなく ScienceAI 本体に与えます — macOS は画面収録を、要求を始めたアプリに帰属させるためです。グラフやキャンバスなど、テキストとして読めないウィンドウを見る必要があるときだけ必要です。"
   },
   "userBrowser": {
     "title": "あなたが入れたブラウザ",
-    "hint": "この Mac に、Open Science のエージェントがシェルから操作できるブラウザが見つかりました。設定する項目はありません — 到達できるという事実をお知らせするための欄です。",
+    "hint": "この Mac に、ScienceAI のエージェントがシェルから操作できるブラウザが見つかりました。設定する項目はありません — 到達できるという事実をお知らせするための欄です。",
     "name": "ego lite",
     "reachable": "インストール済みで利用可能。会話ごとに最初の使用前へ確認を求めます。",
     "notReachable": "インストールされていますが、このマシンにコマンドラインツールがないためエージェントからは届きません。ego lite 自身のセットアップを実行してください。",

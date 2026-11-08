@@ -254,11 +254,11 @@
       "bodyWeb": "Waiting for the host app to answer. Keep this page open — it connects on its own as soon as the host is reachable.",
       "title": "Starting the local runtime…",
       "body": "The bundled agent runtime is coming up. On a first launch macOS may ask for permission to access your folders — allow it and this finishes on its own.",
-      "upgrading": "Open Science is upgrading your conversation history for the new runtime ({{done}} of {{total}} conversations). This happens once."
+      "upgrading": "ScienceAI is upgrading your conversation history for the new runtime ({{done}} of {{total}} conversations). This happens once."
     },
     "runtime": {
-      "title": "OpenCode runtime",
-      "bodyPrefix": "The desktop app runs a bundled OpenCode automatically. In the browser, start one with",
+      "title": "ScienceAI runtime",
+      "bodyPrefix": "The desktop app runs a bundled ScienceAI automatically. In the browser, start one with",
       "bodySuffix": " and connect."
     },
     "connect": "Connect",
@@ -284,7 +284,7 @@
       "openTitle": "Open {{path}} — the agent works on this notebook in this session"
     },
     "connBadge": {
-      "title": "OpenCode · {{status}}",
+      "title": "ScienceAI · {{status}}",
       "status": {
         "ready": "ready",
         "connecting": "connecting",

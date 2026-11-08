@@ -55,7 +55,7 @@
   },
   "page": {
     "title": "Settings",
-    "subtitle": "Everything here configures the bundled OpenCode runtime — one config, no copies."
+    "subtitle": "Everything here configures the bundled ScienceAI runtime — one config, no copies."
   },
   "runtime": {
     "title": "Network",
@@ -83,8 +83,8 @@
     "mirrorPypiPlaceholder": "https://pypi.tuna.tsinghua.edu.cn/simple",
     "mirrorPythonPlaceholder": "https://mirror.example.com/python-build-standalone",
     "mirrorHint": "Optional mirrors, used only when setting up Python tools (Jupyter, science databases) on networks where pypi.org / github.com are slow. Leave blank for defaults.",
-    "serverTitle": "OpenCode server",
-    "serverHint": "The OpenCode the app drives. The built-in one starts by itself; enter an address only to use your own opencode serve."
+    "serverTitle": "ScienceAI server",
+    "serverHint": "The ScienceAI the app drives. The built-in one starts by itself; enter an address only to use your own opencode serve."
   },
   "acp": {
     "add": "Add an agent",
@@ -96,7 +96,7 @@
     "commandPlaceholder": "Command (npx, gemini, …)",
     "argsLabel": "Arguments",
     "argsPlaceholder": "Arguments (-y @agentclientprotocol/codex-acp)",
-    "limits": "An ACP agent runs as a command on this computer, in the conversation’s folder, beside OpenCode. It owns its model, commands and history, so the model picker and plan mode apply to OpenCode conversations only."
+    "limits": "An ACP agent runs as a command on this computer, in the conversation’s folder, beside ScienceAI. It owns its model, commands and history, so the model picker and plan mode apply to ScienceAI conversations only."
   },
   "updates": {
     "title": "App updates",
@@ -120,8 +120,8 @@
     "privacy": "Only the public GitHub Releases API is contacted. No workspace files or API keys are sent."
   },
   "model": {
-    "title": "OpenCode default model",
-    "hint": "The model a new OpenCode conversation starts on. The providers below supply what you can pick.",
+    "title": "ScienceAI default model",
+    "hint": "The model a new ScienceAI conversation starts on. The providers below supply what you can pick.",
     "connectPrompt": "Connect the runtime to configure models.",
     "notSet": "Not set — pick a default model",
     "providersDivider": "Providers",
@@ -149,8 +149,8 @@
     "noProvidersHint": "Connect a provider below."
   },
   "providers": {
-    "title": "OpenCode providers",
-    "hint": "Authentication, custom endpoints, and imported OpenCode logins",
+    "title": "ScienceAI providers",
+    "hint": "Authentication, custom endpoints, and imported ScienceAI logins",
     "webHint": "Connected providers — read-only from the browser",
     "webNote": "API keys and custom endpoints are set on the machine running the workbench — in the desktop app, or with `osd auth set` when it runs headless. Credentials never cross the gateway.",
     "connectPrompt": "Connect the runtime to manage providers.",
@@ -183,7 +183,7 @@
     "fetchingModels": "Fetching…",
     "noModelsFound": "No models reported by the endpoint.",
     "addEndpoint": "Add endpoint",
-    "importLogin": "Already use the OpenCode CLI? Import its login",
+    "importLogin": "Already use the ScienceAI CLI? Import its login",
     "addTitle": "Add a provider",
     "fieldName": "Name",
     "fieldApiStyle": "API style",
@@ -341,8 +341,8 @@
     "couldNotRemoveMcp": "Could not remove the MCP server",
     "mcpRemoved": "MCP server {{name}} removed",
     "importFailed": "Import failed",
-    "noOpenCodeLoginFound": "No OpenCode CLI login found on this machine.",
-    "importedLogin": "Imported your OpenCode CLI login.",
+    "noScienceAILoginFound": "No ScienceAI CLI login found on this machine.",
+    "importedLogin": "Imported your ScienceAI CLI login.",
     "couldNotSetProxy": "Could not apply the proxy setting",
     "proxyApplied": "Proxy setting applied",
     "mirrorSaved": "Mirror settings saved",
@@ -565,7 +565,7 @@
     "disabledNote": "Memory is switched off, so this file is not loaded right now."
   },
   "agentModels": {
-    "title": "OpenCode model and effort per role",
+    "title": "ScienceAI model and effort per role",
     "hint": "Run a reviewer or explorer role on a fast model while the main role reasons on a strong one, and set how hard each one thinks.",
     "noModels": "Connect a provider to choose models.",
     "followDefault": "Follow default",
@@ -610,13 +610,13 @@
     "opened": "Opened the permission setup window.",
     "error": "Computer Use",
     "accessibility": "Accessibility",
-    "accessibilityHint": "Required. Lets the helper read an app's interface and act on it. Granted to Open Science Computer Use — a separate helper — not to the whole workbench.",
+    "accessibilityHint": "Required. Lets the helper read an app's interface and act on it. Granted to ScienceAI Computer Use — a separate helper — not to the whole workbench.",
     "screenshots": "Screen Recording",
-    "screenshotsHint": "Optional, and granted to Open Science itself rather than to the helper — macOS attributes screen capture to the app that started the request. Only needed when the agent has to look at a window it cannot read as text, such as a plot or a canvas."
+    "screenshotsHint": "Optional, and granted to ScienceAI itself rather than to the helper — macOS attributes screen capture to the app that started the request. Only needed when the agent has to look at a window it cannot read as text, such as a plot or a canvas."
   },
   "userBrowser": {
     "title": "A browser you installed",
-    "hint": "Open Science found a browser on this Mac that its agent can drive from the shell. Nothing to configure — this is here so you know it can be reached.",
+    "hint": "ScienceAI found a browser on this Mac that its agent can drive from the shell. Nothing to configure — this is here so you know it can be reached.",
     "name": "ego lite",
     "reachable": "Installed and reachable. The agent will ask before the first use in a conversation.",
     "notReachable": "Installed, but its command-line tool is not on this machine, so the agent cannot reach it. Run ego lite's own setup to add it.",

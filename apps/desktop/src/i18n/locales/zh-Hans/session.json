@@ -253,8 +253,8 @@
       "upgrading": "正在为新版运行时升级对话历史（{{done}}/{{total}} 个对话），只需进行一次。"
     },
     "runtime": {
-      "title": "OpenCode 运行时",
-      "bodyPrefix": "桌面应用会自动运行一个内置的 OpenCode。在浏览器中，请使用以下命令启动一个",
+      "title": "ScienceAI 运行时",
+      "bodyPrefix": "桌面应用会自动运行一个内置的 ScienceAI。在浏览器中，请使用以下命令启动一个",
       "bodySuffix": "并连接。"
     },
     "connect": "连接",
@@ -280,7 +280,7 @@
       "openTitle": "打开 {{path}} — 代理在此会话中处理此笔记本"
     },
     "connBadge": {
-      "title": "OpenCode · {{status}}",
+      "title": "ScienceAI · {{status}}",
       "status": {
         "ready": "就绪",
         "connecting": "连接中",

@@ -2277,6 +2277,7 @@ describe("model switch failure state", () => {
     // The likely retry path: the server is still down, so the PATCH itself
     // rejects before any reconnect. The failure state must re-arm — this is
     // exactly the case where the old page-local flag silently dropped it.
+    useRuntimeStore.setState({ defaultModel: null });
     mocks.failSetModel = true;
     await expect(
       useRuntimeStore.getState().setDefaultModel("anthropic/claude-sonnet-5"),

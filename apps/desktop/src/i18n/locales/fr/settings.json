@@ -55,7 +55,7 @@
   },
   "page": {
     "title": "Paramètres",
-    "subtitle": "Tout ici configure le runtime OpenCode intégré — une seule configuration, aucune copie."
+    "subtitle": "Tout ici configure le runtime ScienceAI intégré — une seule configuration, aucune copie."
   },
   "runtime": {
     "title": "Réseau",
@@ -83,8 +83,8 @@
     "mirrorPypiPlaceholder": "https://pypi.tuna.tsinghua.edu.cn/simple",
     "mirrorPythonPlaceholder": "https://mirror.example.com/python-build-standalone",
     "mirrorHint": "Miroirs facultatifs, utilisés uniquement lors de l’installation d’outils Python (Jupyter, bases de données scientifiques) sur les réseaux où pypi.org / github.com sont lents. Laisser vide pour les valeurs par défaut.",
-    "serverTitle": "Serveur OpenCode",
-    "serverHint": "L’OpenCode piloté par l’application. Celui intégré démarre seul ; saisissez une adresse seulement pour utiliser votre propre opencode serve."
+    "serverTitle": "Serveur ScienceAI",
+    "serverHint": "L’ScienceAI piloté par l’application. Celui intégré démarre seul ; saisissez une adresse seulement pour utiliser votre propre opencode serve."
   },
   "acp": {
     "add": "Ajouter un agent",
@@ -96,7 +96,7 @@
     "commandPlaceholder": "Commande (npx, gemini, …)",
     "argsLabel": "Arguments",
     "argsPlaceholder": "Arguments (-y @agentclientprotocol/codex-acp)",
-    "limits": "Un agent ACP s’exécute comme une commande sur cet ordinateur, dans le dossier de la conversation, à côté d’OpenCode. Il gère lui-même modèle, commandes et historique, donc le sélecteur de modèle et le mode plan ne s’appliquent qu’aux conversations OpenCode."
+    "limits": "Un agent ACP s’exécute comme une commande sur cet ordinateur, dans le dossier de la conversation, à côté d’ScienceAI. Il gère lui-même modèle, commandes et historique, donc le sélecteur de modèle et le mode plan ne s’appliquent qu’aux conversations ScienceAI."
   },
   "updates": {
     "title": "Mises à jour de l'app",
@@ -120,8 +120,8 @@
     "privacy": "Seule l'API publique GitHub Releases est contactée. Aucun fichier de workspace ni clé API n'est envoyé."
   },
   "model": {
-    "title": "Modèle OpenCode par défaut",
-    "hint": "Le modèle avec lequel démarre une nouvelle conversation OpenCode. Les fournisseurs ci-dessous proposent les choix.",
+    "title": "Modèle ScienceAI par défaut",
+    "hint": "Le modèle avec lequel démarre une nouvelle conversation ScienceAI. Les fournisseurs ci-dessous proposent les choix.",
     "connectPrompt": "Connectez le runtime pour configurer les modèles.",
     "notSet": "Non défini — choisissez un modèle par défaut",
     "providersDivider": "Fournisseurs",
@@ -149,8 +149,8 @@
     "noProvidersHint": "Connectez un fournisseur ci-dessous."
   },
   "providers": {
-    "title": "Fournisseurs OpenCode",
-    "hint": "Authentification, points de terminaison personnalisés et connexions OpenCode importées",
+    "title": "Fournisseurs ScienceAI",
+    "hint": "Authentification, points de terminaison personnalisés et connexions ScienceAI importées",
     "webHint": "Fournisseurs connectés — lecture seule depuis le navigateur",
     "webNote": "Les clés d'API et les points de terminaison personnalisés se définissent sur la machine qui fait tourner le workbench : dans l'app de bureau, ou avec `osd auth set` si elle tourne sans fenêtre. Les identifiants ne transitent jamais par la passerelle.",
     "connectPrompt": "Connectez le runtime pour gérer les fournisseurs.",
@@ -183,7 +183,7 @@
     "fetchingModels": "Récupération…",
     "noModelsFound": "Le point de terminaison n'a signalé aucun modèle.",
     "addEndpoint": "Ajouter un point de terminaison",
-    "importLogin": "Vous utilisez déjà le CLI OpenCode ? Importez sa connexion",
+    "importLogin": "Vous utilisez déjà le CLI ScienceAI ? Importez sa connexion",
     "addTitle": "Ajouter un fournisseur",
     "fieldName": "Nom",
     "fieldApiStyle": "Style d'API",
@@ -317,8 +317,8 @@
     "couldNotRemoveMcp": "Impossible de supprimer le serveur MCP",
     "mcpRemoved": "Serveur MCP {{name}} supprimé",
     "importFailed": "Échec de l'importation",
-    "noOpenCodeLoginFound": "Aucune connexion CLI OpenCode trouvée sur cette machine.",
-    "importedLogin": "Votre connexion CLI OpenCode a été importée.",
+    "noScienceAILoginFound": "Aucune connexion CLI ScienceAI trouvée sur cette machine.",
+    "importedLogin": "Votre connexion CLI ScienceAI a été importée.",
     "couldNotSetProxy": "Impossible d’appliquer le réglage du proxy",
     "proxyApplied": "Réglage du proxy appliqué",
     "mirrorSaved": "Réglages de miroir enregistrés",
@@ -541,7 +541,7 @@
     "disabledNote": "La mémoire est désactivée : ce fichier n’est pas chargé pour l’instant."
   },
   "agentModels": {
-    "title": "Modèle et effort OpenCode par rôle",
+    "title": "Modèle et effort ScienceAI par rôle",
     "hint": "Le rôle principal raisonne avec un modèle puissant, les rôles de relecture et d’exploration tournent sur un modèle rapide, chacun avec son niveau d’effort.",
     "noModels": "Connectez un fournisseur pour choisir des modèles.",
     "followDefault": "Suivre le défaut",
@@ -610,13 +610,13 @@
     "opened": "Fenêtre des autorisations ouverte.",
     "error": "Contrôle de l'ordinateur",
     "accessibility": "Accessibilité",
-    "accessibilityHint": "Obligatoire. Permet à l'assistant de lire l'interface d'une application et d'agir dessus. L'autorisation est accordée à Open Science Computer Use — un assistant distinct — et non à tout l'atelier.",
+    "accessibilityHint": "Obligatoire. Permet à l'assistant de lire l'interface d'une application et d'agir dessus. L'autorisation est accordée à ScienceAI Computer Use — un assistant distinct — et non à tout l'atelier.",
     "screenshots": "Enregistrement de l'écran",
-    "screenshotsHint": "Facultatif, et accordé à Open Science lui-même plutôt qu'à l'assistant — macOS attribue la capture d'écran à l'application à l'origine de la demande. Utile seulement lorsque l'agent doit regarder une fenêtre qu'il ne peut pas lire sous forme de texte, comme un graphique ou un canevas."
+    "screenshotsHint": "Facultatif, et accordé à ScienceAI lui-même plutôt qu'à l'assistant — macOS attribue la capture d'écran à l'application à l'origine de la demande. Utile seulement lorsque l'agent doit regarder une fenêtre qu'il ne peut pas lire sous forme de texte, comme un graphique ou un canevas."
   },
   "userBrowser": {
     "title": "Un navigateur que vous avez installé",
-    "hint": "Open Science a trouvé sur ce Mac un navigateur que son agent peut piloter depuis le shell. Rien à configurer : c'est ici pour que vous sachiez qu'il est atteignable.",
+    "hint": "ScienceAI a trouvé sur ce Mac un navigateur que son agent peut piloter depuis le shell. Rien à configurer : c'est ici pour que vous sachiez qu'il est atteignable.",
     "name": "ego lite",
     "reachable": "Installé et atteignable. L'agent demandera votre accord avant la première utilisation de chaque conversation.",
     "notReachable": "Installé, mais son outil en ligne de commande est absent de cette machine, donc l'agent ne peut pas l'atteindre. Lancez la configuration propre à ego lite pour l'ajouter.",

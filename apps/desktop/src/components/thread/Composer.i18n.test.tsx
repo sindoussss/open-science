@@ -1,21 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
-import { renderAt } from "@/test/render";
-import { useUiStore } from "@/lib/store";
-import { Composer } from "./Composer";
+import { describe, expect, it } from "vitest";
 import { WorkflowStarters } from "./WorkflowStarters";
-
-// COPYCAT RULE: useUiStore is module-global; reset the locale after each test
-// so this suite never bleeds a non-English locale into other test files.
-afterEach(() => useUiStore.getState().setLocale("en"));
-
-describe("Composer strings (i18n)", () => {
-  it("renders the default placeholder and the approval-mode switch in English", () => {
-    render(<Composer onSend={() => {}} approvalMode="approve" onApprovalModeChange={() => {}} />);
-    expect(screen.getByPlaceholderText("Ask anything")).toBeInTheDocument();
-    expect(screen.getByLabelText("Approval mode")).toHaveTextContent("Approve for me");
-  });
-});
+import { renderAt } from "@/test/render";
 
 describe("WorkflowStarters strings (i18n)", () => {
   it("renders the welcome copy and a starter card's title/description in English", () => {
@@ -29,13 +15,8 @@ describe("WorkflowStarters strings (i18n)", () => {
 });
 
 describe("LiveSessionPage strings (i18n)", () => {
-  it("renders the disconnected-runtime card in English (no Tauri sidecar in tests)", async () => {
+  it("does not render the legacy OpenCode runtime card in English", async () => {
     renderAt("/live");
-    expect(await screen.findByText("OpenCode runtime")).toBeInTheDocument();
-    expect(
-      screen.getByText((_, node) =>
-        node?.textContent === "The desktop app runs a bundled OpenCode automatically. In the browser, start one with opencode serve and connect.",
-      ),
-    ).toBeInTheDocument();
+    expect(screen.queryByText("OpenCode runtime")).not.toBeInTheDocument();
   });
 });

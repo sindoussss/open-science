@@ -12,7 +12,6 @@ import {
   PanelBottom,
   PanelLeft,
   PanelRight,
-  PlugZap,
   SquareTerminal,
   X,
 } from "lucide-react";
@@ -20,7 +19,6 @@ import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { terminalKindOf } from "@/lib/cliAgents";
 import { acpSlashCommands } from "@/lib/acpAgents";
 import { toast } from "@/lib/toast";
-import type { RuntimeStatus } from "@ai4s/shared";
 import {
   acpAgentFor,
   contextLimitFor,
@@ -238,7 +236,6 @@ export function SessionView({
   const enqueuePrompt = useRuntimeStore((s) => s.enqueuePrompt);
   const sendQueuedPrompt = useRuntimeStore((s) => s.sendQueuedPrompt);
   const compactContext = useRuntimeStore((s) => s.compactContext);
-  const serverUrl = useRuntimeStore((s) => s.serverUrl);
   const sessions = useRuntimeStore((s) => s.sessions);
   const draftWorkspaces = useRuntimeStore((s) => s.draftWorkspaces);
   const error = useRuntimeStore((s) => s.error);
@@ -248,7 +245,6 @@ export function SessionView({
   const workspace = useRuntimeStore((s) => s.workspace);
   const pane = useRuntimeStore((s) => s.panes[key]);
   const commands = useRuntimeStore((s) => s.commands);
-  const connect = useRuntimeStore((s) => s.connect);
   const sendPrompt = useRuntimeStore((s) => s.sendPrompt);
   const createDraftSession = useRuntimeStore((s) => s.createDraftSession);
   const runShell = useRuntimeStore((s) => s.runShell);
@@ -326,7 +322,6 @@ export function SessionView({
 
   const connected = status === "ready" || switching;
   const connecting = status === "connecting" && !switching;
-  const displayStatus = switching ? "ready" : status;
   // Error or offline: the only states the pane header speaks up for. A start
   // in progress is said once, in the composer ("Starting runtime…"), and by
   // the slow-start notice if it drags on — not by a badge and a spinner in
@@ -995,18 +990,6 @@ export function SessionView({
             visible={visible}
           />
           </div>
-          {/* Trouble is never hidden: it shows whether or not the header is
-              hovered. Ready and starting say nothing here (see `trouble`). */}
-          {trouble && <ConnBadge status={displayStatus} />}
-          {trouble && (
-            <button
-              onClick={connect}
-              className="flex items-center gap-1.5 rounded-input bg-accent px-2.5 py-0.5 text-xs font-medium text-accent-fg hover:opacity-90"
-            >
-              <PlugZap size={13} />
-              {t("live.connect")}
-            </button>
-          )}
         </div>
 
         {inspectorFillsPane ? (
@@ -1083,20 +1066,6 @@ export function SessionView({
             style={contentZoom !== 1 ? { zoom: contentZoom } : undefined}
             className="mx-auto flex max-w-[760px] flex-col gap-4 px-8 pt-6"
           >
-            {!connected && !connecting && (
-              <div className="rounded-card bg-surface-2 p-5">
-                <div className="text-sm font-medium text-text">{t("live.runtime.title")}</div>
-                <p className="mt-1 text-sm text-muted">
-                  {t("live.runtime.bodyPrefix")}{" "}
-                  {/* eslint-disable-next-line i18next/no-literal-string -- literal shell command, not prose */}
-                  <span className="font-mono">opencode serve</span>
-                  {t("live.runtime.bodySuffix")}
-                </p>
-                <div className="mt-3 rounded-input bg-surface px-3 py-2 font-mono text-xs text-text">
-                  {serverUrl}
-                </div>
-              </div>
-            )}
             {slowStart && focused && (
               // Only for a start that is genuinely taking a while (see
               // useSlowStart) — a normal launch connects before this appears,
@@ -1397,24 +1366,6 @@ async function revealSessionFolder(path: string): Promise<void> {
   await invoke("reveal_path", { path, root: null });
 }
 
-function ConnBadge({ status }: { status: RuntimeStatus }) {
-  const { t } = useTranslation(["session", "common"]);
-  const tone = status === "ready" ? "text-ok" : status === "error" ? "text-error" : "text-muted";
-  return (
-    <span
-      className={cn("flex items-center gap-1.5 text-xs", tone)}
-      title={t("live.connBadge.title", { status: t(`live.connBadge.status.${status}`) })}
-    >
-      <span
-        className={cn(
-          "h-1.5 w-1.5 rounded-full",
-          status === "ready" ? "bg-ok" : status === "error" ? "bg-error" : "bg-muted",
-        )}
-      />
-      {status !== "ready" && t("live.connBadge.title", { status: t(`live.connBadge.status.${status}`) })}
-    </span>
-  );
-}
 
 /* ------------------------------------------------------------------ *
  *  Per-session thread subscribers (#157). The thread object gets a     *

@@ -257,8 +257,8 @@
       "upgrading": "Der Gesprächsverlauf wird für die neue Laufzeit aktualisiert ({{done}} von {{total}} Gesprächen). Das passiert nur einmal."
     },
     "runtime": {
-      "title": "OpenCode-Runtime",
-      "bodyPrefix": "Die Desktop-App führt automatisch eine gebündelte OpenCode-Instanz aus. Starten Sie im Browser eine mit",
+      "title": "ScienceAI-Runtime",
+      "bodyPrefix": "Die Desktop-App führt automatisch eine gebündelte ScienceAI-Instanz aus. Starten Sie im Browser eine mit",
       "bodySuffix": " und verbinden Sie sich."
     },
     "connect": "Verbinden",
@@ -284,7 +284,7 @@
       "openTitle": "{{path}} öffnen — der Agent arbeitet in dieser Sitzung an diesem Notebook"
     },
     "connBadge": {
-      "title": "OpenCode · {{status}}",
+      "title": "ScienceAI · {{status}}",
       "status": {
         "ready": "bereit",
         "connecting": "verbindet …",

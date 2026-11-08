@@ -253,8 +253,8 @@
       "upgrading": "新しいランタイム向けに会話履歴を更新しています（{{done}}/{{total}} 件）。この処理は一度だけ行われます。"
     },
     "runtime": {
-      "title": "OpenCode ランタイム",
-      "bodyPrefix": "デスクトップアプリはバンドルされた OpenCode を自動的に実行します。ブラウザでは、",
+      "title": "ScienceAI ランタイム",
+      "bodyPrefix": "デスクトップアプリはバンドルされた ScienceAI を自動的に実行します。ブラウザでは、",
       "bodySuffix": " で起動して接続してください。"
     },
     "connect": "接続",
@@ -280,7 +280,7 @@
       "openTitle": "{{path}} を開く — エージェントはこのセッションでこのノートブックを操作します"
     },
     "connBadge": {
-      "title": "OpenCode · {{status}}",
+      "title": "ScienceAI · {{status}}",
       "status": {
         "ready": "準備完了",
         "connecting": "接続中",
